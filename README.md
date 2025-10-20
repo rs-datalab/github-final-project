@@ -28,9 +28,6 @@ Empowering communities through transparent, accessible finance.
 
 This repository contains a **Bash script** that computes **simple interest**:
 
-**Formula:**  
-`Simple Interest = (P × R × T) / 100`
-
 <p align="center"><b>Simple Interest = (P × R × T) / 100</b></p>
 
 

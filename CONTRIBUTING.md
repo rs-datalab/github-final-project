@@ -1,9 +1,9 @@
-# Contributing to `github-final-project` (Simple Interest Calculator — Python)
+# Contributing to `github-final-project` (Simple Interest Calculator — Bash)
 
-First off, **thank you** for helping us build transparent, trustworthy financial tooling.  
+Thank you for helping us build transparent, trustworthy financial tooling.  
 This repo is part of a micro-finance initiative aimed at **empowering low-income individuals** with clear, accessible calculations.
 
-We welcome contributions from beginners and experts alike—docs, tests, bug fixes, and improvements to the Python code are all valuable.
+All **contributions, bug reports, bug fixes, documentation improvements, enhancements, and ideas are welcome.**
 
 ---
 
@@ -13,12 +13,11 @@ We welcome contributions from beginners and experts alike—docs, tests, bug fix
 - [Before You Start](#before-you-start)
 - [Local Development Setup](#local-development-setup)
 - [Project Structure](#project-structure)
-- [Quality: Lint, Format, Type, Test](#quality-lint-format-type-test)
+- [Quality (Optional)](#quality-optional)
 - [Branching & Commit Messages](#branching--commit-messages)
 - [Pull Request Process](#pull-request-process)
 - [Reporting Bugs](#reporting-bugs)
 - [Suggesting Enhancements](#suggesting-enhancements)
-- [Developer Certificate of Origin (DCO)](#developer-certificate-of-origin-dco)
 - [License](#license)
 
 ---
@@ -30,54 +29,37 @@ By contributing, you agree to uphold a respectful, inclusive environment.
 ---
 
 ## Ways to Contribute
-- **Improve the code**: correctness, validation, error messages, CLI UX.
-- **Add tests**: edge cases (zero/negative values), rounding, large inputs.
-- **Documentation**: clarify the README, add examples, fix typos.
-- **Tooling/CI**: ruff/black/isort/mypy config, GitHub Actions.
-- **Issue triage**: reproduce bugs, write minimal repro steps.
+- Improve the Bash script (correctness, validation, clearer prompts).
+- Documentation: clarify README, fix typos, add usage notes.
+- File housekeeping (comments, header metadata).
+- Issue triage: reproduce bugs, provide minimal repro steps.
 
-If you’re new to Git/GitHub, improving docs or tests is a perfect first PR!
+If you’re new to Git/GitHub, improving docs is a perfect first PR!
 
 ---
 
 ## Before You Start
 1. **Search issues/PRs** to avoid duplicates.
-2. **Open an issue** to discuss non-trivial changes or design decisions.
-3. Aim for **clarity, simplicity, and transparency**—that’s our mission.
+2. **Open an issue** to discuss non-trivial changes.
+3. Keep changes **small and focused**.
 
 ---
 
 ## Local Development Setup
 
-### Prerequisites
-- Python **3.10+**
-- Git
-- (Optional) `make`
+**Requirements**
+- POSIX-compatible shell (Linux/macOS/WSL)
+- `bash`
 
-### Create a virtual environment
+**Run**
 ```bash
 git clone https://github.com/<your-username>/github-final-project.git
 cd github-final-project
-
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
-
-python -m pip install --upgrade pip
-pip install -r requirements.txt           # runtime deps (if any)
-pip install -r requirements-dev.txt       # ruff, black, isort, mypy, pytest
+chmod +x simple-interest.sh
+./simple-interest.sh
 ````
 
-### Quick run (CLI)
-
-```bash
-# Example:
-python simple_interest.py --principal 1000 --rate 5 --years 2
-# Expected:
-# Simple Interest: 100.00
-# Total Amount: 1100.00
-```
+The script is **interactive** and will prompt for principal, rate (%), and time (years).
 
 ---
 
@@ -85,90 +67,56 @@ python simple_interest.py --principal 1000 --rate 5 --years 2
 
 ```
 .
-├─ simple_interest.py            # CLI entry / main function
-├─ src/interest/                 # optional: library code (if you split it out)
-│  ├─ __init__.py
-│  └─ calculator.py              # pure functions for compute_interest(...)
-├─ tests/
-│  ├─ test_calculator.py
-│  └─ test_cli.py
-├─ requirements.txt
-├─ requirements-dev.txt
-├─ README.md
-├─ CONTRIBUTING.md
-├─ CODE_OF_CONDUCT.md
-└─ LICENSE
+├─ simple-interest.sh          # interactive calculator
+├─ README.md                   # project overview & usage
+├─ LICENSE                     # Apache 2.0 license
+├─ CODE_OF_CONDUCT.md          # Contributor Covenant
+└─ CONTRIBUTING.md             # this file
 ```
-
-> **Tip:** Keep business logic in pure functions (easy to test). Let the CLI handle I/O/arg parsing only.
 
 ---
 
-## Quality: Lint, Format, Type, Test
+## Quality (Optional)
 
-We keep quality lightweight but consistent:
+This is a simple Bash project—quality checks are optional but appreciated:
 
-* **Format**: `black .`
-* **Imports**: `isort .`
-* **Lint**: `ruff .`
-* **Typing**: `mypy .` (at least on new/changed code)
-* **Tests**: `pytest -q`
+* Lint with [`shellcheck`](https://www.shellcheck.net/) if available:
 
-Suggested workflow:
-
-```bash
-ruff . && black . && isort . && mypy . && pytest -q
-```
-
-### Testing Guidance
-
-* Use **pytest** with clear, small tests.
-* Cover:
-
-  * correct formula: `SI = P * R * T / 100`
-  * rounding/formatting to two decimals
-  * invalid input (non-numeric, negative)
-  * CLI argument parsing and exit codes
+  ```bash
+  shellcheck simple-interest.sh
+  ```
 
 ---
 
 ## Branching & Commit Messages
 
-* Create a focused branch off `main`:
+* Create a short-lived branch from `main`:
 
   ```bash
-  git checkout -b feat/validate-inputs
-  # or: fix/rounding-bug, docs/readme-examples, chore/ci
+  git checkout -b docs/readme-example
+  # or: fix/validate-inputs, chore/comments
   ```
-* Write clear commit messages (imperative mood). **Conventional Commits** encouraged:
+* Write clear, concise commit messages (imperative mood).
 
-  * `feat: add input validation for negative values`
-  * `fix: correct rounding to two decimals`
-  * `docs: expand README usage examples`
-  * `test: add CLI error path tests`
+  * `fix: validate numeric input for rate`
+  * `docs: clarify interactive example in README`
 
 ---
 
 ## Pull Request Process
 
 1. **Fork** the repo and **clone** your fork.
-2. Create a feature branch and implement changes.
-3. Run **ruff/black/isort/mypy/pytest** locally and ensure green.
-4. Update **README** if behavior or usage changes.
-5. Commit with clear messages and **sign-off** (see DCO).
-6. Push and open a **Pull Request**:
-
-   * Explain the problem and solution.
-   * Add before/after output if relevant.
-   * Note any trade-offs or follow-ups.
+2. Create a branch and implement your changes.
+3. Run the script locally to verify behavior.
+4. Update **README** if usage or messaging changes.
+5. Push and open a **Pull Request** with a short description of the *problem* and *solution*.
+6. Be ready to iterate on maintainer feedback.
 
 **PR checklist**
 
-* [ ] Code runs locally (`python simple_interest.py …`)
-* [ ] Tests added/updated and passing (`pytest -q`)
-* [ ] Lint/format/type checks pass (ruff/black/isort/mypy)
-* [ ] Docs updated (README / comments)
-* [ ] **DCO sign-off** on each commit
+* [ ] Script runs interactively without errors
+* [ ] Docs updated if behavior changed
+* [ ] Changes are focused and clearly described
 
 ---
 
@@ -176,12 +124,11 @@ ruff . && black . && isort . && mypy . && pytest -q
 
 Please include:
 
-* **Exact command** you ran and full output/traceback
+* **Exact steps/inputs** (copy/paste the interactive session if possible)
 * **Expected vs actual** result
-* Python version and OS
-* Minimal repro (e.g., input arguments)
+* OS/shell details
 
-Open an issue and apply the `bug` label.
+Open an issue and label it `bug`.
 
 ---
 
@@ -189,30 +136,9 @@ Open an issue and apply the `bug` label.
 
 Open an issue and describe:
 
-* **What** you propose (e.g., decimal support, currency formatting, JSON output)
-* **Why** it helps users (accuracy, accessibility, transparency)
+* **What** you propose (e.g., input validation, decimal handling, output formatting)
+* **Why** it helps users (clarity, accessibility)
 * **How** you’d approach it (brief plan)
-
-We prioritize improvements that enhance **correctness**, **usability**, and **readability**.
-
----
-
-## Developer Certificate of Origin (DCO)
-
-We use the **DCO** to confirm you have the right to submit your contribution.
-
-Sign your commits with:
-
-```bash
-git commit -s -m "feat: add --output json option"
-```
-
-If you forgot:
-
-```bash
-git commit --amend -s
-git push --force-with-lease
-```
 
 ---
 
@@ -224,5 +150,4 @@ By contributing, you agree that your contributions are licensed under the **Apac
 
 **Thank you** for contributing—every improvement helps make financial tools more accessible to the communities we serve. 💙
 
-```ight away?
-```
+

@@ -1,6 +1,5 @@
 # github-final-project — Simple Interest Calculator (Bash)
 
-
 Empowering communities through transparent, accessible finance.
 
 > I recently joined a micro-finance startup on a mission to **empower and provide opportunities to low-income individuals**.  
@@ -29,18 +28,22 @@ Empowering communities through transparent, accessible finance.
 
 This repository contains a **Bash script** that computes **simple interest**:
 
-\[
-\text{Simple Interest} = \frac{P \times R \times T}{100}
-\]
+**Formula:**  
+`Simple Interest = (P × R × T) / 100`
+
+<p align="center"><b>Simple Interest = (P × R × T) / 100</b></p>
+
 
 where:
-- **P** = Principal amount  
-- **R** = Annual interest rate (in percent)  
-- **T** = Time period (in years)
+- **P** = principal amount  
+- **R** = annual rate of interest (in percent)  
+- **T** = time period in years
 
 The goal is twofold:
 1. Provide a small, auditable utility our teams and partners can reuse.
 2. Demonstrate healthy open-source practices (README, License, Code of Conduct, Contributing guidelines).
+
+> **Note:** As stated in the script header, this is **sample code only** and **not for production** use.
 
 ---
 
@@ -55,7 +58,7 @@ In micro-finance, clarity builds trust. By open-sourcing even a basic calculator
 
 ## What’s included
 
-- `simple-interest.sh` — Bash script to calculate simple interest.
+- `simple-interest.sh` — Bash script to calculate simple interest (interactive; reads values from standard input).
 - `README.md` — You’re reading it 😊
 - [`LICENSE`](LICENSE) — **Apache License 2.0** to encourage broad use.
 - [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — Sets expectations for respectful collaboration.
@@ -66,7 +69,7 @@ In micro-finance, clarity builds trust. By open-sourcing even a basic calculator
 ## Getting started
 
 ### Prerequisites
-- A POSIX-compatible shell (Linux/macOS/WSL).  
+- A POSIX-compatible shell (Linux/macOS/WSL).
 - `bash` installed (usually available by default).
 - Make the script executable if needed.
 
@@ -80,39 +83,31 @@ cd github-final-project
 # Ensure the script is executable
 chmod +x simple-interest.sh
 
-# Usage:
-# ./simple-interest.sh <principal> <rate_percent> <time_years>
-
-./simple-interest.sh 1000 5 2
+# Run (the script will prompt for values)
+./simple-interest.sh
 ````
 
 ### Examples
 
-```bash
-# Example 1: P=1000, R=5%, T=2 years
-./simple-interest.sh 1000 5 2
-# Output:
-# Principal: 1000
-# Rate (%): 5
-# Time (years): 2
-# Simple Interest: 100.00
-# Total Amount: 1100.00
+**Interactive session (matches the script behavior):**
 
-# Example 2: P=2500, R=7.5%, T=1.5 years
-./simple-interest.sh 2500 7.5 1.5
-# Output:
-# Principal: 2500
-# Rate (%): 7.5
-# Time (years): 1.5
-# Simple Interest: 281.25
-# Total Amount: 2781.25
+```text
+$ ./simple-interest.sh
+Enter the principal:
+1000
+Enter rate of interest per year:
+5
+Enter time period in years:
+2
+The simple interest is:
+100
 ```
 
 > **Notes**
 >
 > * Inputs must be numeric.
 > * Rate is in **percent** (e.g., `7.5` for 7.5%).
-> * Time is in **years** (decimals allowed).
+> * Time is in **years**.
 
 ---
 
@@ -120,10 +115,10 @@ chmod +x simple-interest.sh
 
 ```
 github-final-project/
-├─ simple-interest.sh          # The calculator script
+├─ simple-interest.sh          # The calculator script (interactive)
 ├─ README.md                   # Project overview & usage
 ├─ LICENSE                     # Apache 2.0 license
-├─ CODE_OF_CONDUCT.md          # Community standards
+├─ CODE_OF_CONDUCT.md          # Community standards (Contributor Covenant)
 └─ CONTRIBUTING.md             # How to propose changes
 ```
 
@@ -135,7 +130,7 @@ We welcome issues, suggestions, and pull requests—especially from learners ado
 
 * Read our guidelines: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 * Open an issue to discuss ideas or report a bug.
-* Follow the PR checklist and keep changes focused.
+* Keep changes focused and documented.
 
 Together we can make financial tools **more understandable** and **more available**.
 
@@ -154,7 +149,3 @@ This project is licensed under the **Apache License 2.0**.
 See [`LICENSE`](LICENSE) for details.
 
 ---
-
-
-```
-```

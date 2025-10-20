@@ -1,12 +1,12 @@
 # github-final-project — Simple Interest Calculator (Bash)
-````markdown
+
 
 Empowering communities through transparent, accessible finance.
 
 > I recently joined a micro-finance startup on a mission to **empower and provide opportunities to low-income individuals**.  
 > This repository kicks off our migration from SVN to Git by hosting a small but essential example: a **Simple Interest Calculator**.  
 > We’re using this project to model **open-source best practices**—clear docs, a welcoming community process, and a permissive license.
-
+````markdown
 ---
 
 ## Table of Contents

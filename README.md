@@ -1,4 +1,8 @@
 # github-final-project — Simple Interest Calculator (Bash)
+> 🧩 This repository was created as part of the IBM “Introduction to Git and GitHub” course on Coursera.  
+> It demonstrates practical Git operations: branching, merging, and reverting changes via CLI.
+
+
 
 Empowering communities through transparent, accessible finance.
 

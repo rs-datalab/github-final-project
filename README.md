@@ -1,6 +1,9 @@
 # github-final-project — Simple Interest Calculator (Bash)
 > 🧩 This repository was created as part of the IBM “Introduction to Git and GitHub” course on Coursera.  
-> It demonstrates practical Git operations: branching, merging, and reverting changes via CLI.
+> It demonstrates practical Git operations: creating a repo, adding supporting documents, branching, merging, and reverting changes via CLI.
+> **Project context (Course Final Project)**
+> - **Part 1 – GitHub UI:** Created public repo **github-final-project**, added `README.md`, `LICENSE` (Apache 2.0), `CODE_OF_CONDUCT.md` (Contributor Covenant), and `CONTRIBUTING.md` (based on provided resources). Added `simple-interest.sh`.
+> - **Part 2 – Git CLI:** Forked the course repo, cloned locally, created `bug-fix-typo` to update README footer **2022 → 2023**, committed and pushed; merged into `main` locally; created `bug-fix-revert`, reverted the change back to **2022**, pushed branch and opened a PR from my fork to the upstream `main` (auto-closed per lab).
 
 
 
